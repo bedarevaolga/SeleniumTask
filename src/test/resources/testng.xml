@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    <test name="SeleniumTask">
+        <parameter name="producer" value="Samsung"/>
+        <parameter name="maxPrice" value="1500"/>
+        <parameter name="minDiagonal" value="40&quot;"/>
+        <parameter name="maxDiagonal" value="50&quot;"/>
+        <parameter name="screen" value="1920x1080 (Full HD)"/>
+        <classes>
+            <class name="com.parametriz.BaseTest">
+            </class>
+        </classes>
+    </test>
+</suite>
