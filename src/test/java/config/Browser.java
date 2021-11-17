@@ -15,24 +15,22 @@ public final class Browser{
     }
 
     private Browser() {
-
     }
+
     private WebDriver driver;
 
     public WebDriver SetUp() {
         System.setProperty("webdriver.chrome.driver", ConfigLoader.getProperty("driverPath"));
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS).implicitlyWait(10,TimeUnit.SECONDS).setScriptTimeout(10,TimeUnit.SECONDS);
-        driver.navigate().to(ConfigLoader.getProperty("url"));
+        driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS).implicitlyWait(15,TimeUnit.SECONDS).setScriptTimeout(15,TimeUnit.SECONDS);
+        driver.get(ConfigLoader.getProperty("url"));
         return driver;
-
     }
 
     public WebDriver getDriver() {
         return driver;
     }
-
 
     public void teardown(){
         try {

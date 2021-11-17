@@ -24,8 +24,7 @@ public class ItemPage extends Page {
         new WebDriverWait(driver, 15)
                 .until(ExpectedConditions.refreshed(ExpectedConditions.stalenessOf(driver
                         .findElement(By.className("schema-product__price")))));
-
-      return (checkPrice(price) && checkProducer(producer) && checkDescription(minDiagonal, maxDiagonal, screen));
+        return (checkPrice(price) && checkProducer(producer) && checkDescription(minDiagonal, maxDiagonal, screen));
     }
 
     public boolean checkPrice(String price) {
@@ -39,6 +38,7 @@ public class ItemPage extends Page {
         }
         return true;
     }
+
     public boolean checkProducer(String producer) {
         List<WebElement> producers = driver.findElements(producersBy);
         for (WebElement element : producers) {
@@ -48,18 +48,19 @@ public class ItemPage extends Page {
         }
         return true;
     }
+
     public boolean checkDescription(String minDiagonal, String maxDiagonal, String screen) {
-            List<WebElement> descriptions = driver.findElements(descriptionsBy);
-            for (WebElement description : descriptions) {
-                String desc = description.getText().trim();
-                if (!desc.contains(screen)
-                        || (getScreenSize(desc) < getScreenSize(minDiagonal)
-                        && getScreenSize(desc) > getScreenSize(maxDiagonal))) {
-                    return false;
-                }
+        List<WebElement> descriptions = driver.findElements(descriptionsBy);
+        for (WebElement description : descriptions) {
+            String desc = description.getText().trim();
+            if (!desc.contains(screen)
+                    || (getScreenSize(desc) < getScreenSize(minDiagonal)
+                    && getScreenSize(desc) > getScreenSize(maxDiagonal))) {
+                return false;
             }
-            return true;
         }
+        return true;
+    }
 
     public double getScreenSize(String s) {
         return Double.parseDouble(s.trim().substring(0, s.indexOf("\"")));
