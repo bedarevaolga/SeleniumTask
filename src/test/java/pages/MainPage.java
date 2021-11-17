@@ -17,4 +17,5 @@ public class MainPage extends Page {
         spnCatalog.click();
         return new CatalogPage(driver);
     }
+
 }

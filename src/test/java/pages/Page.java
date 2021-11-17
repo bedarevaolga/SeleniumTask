@@ -9,7 +9,7 @@ import java.util.List;
 
 public abstract class Page {
 
-    public final WebDriver driver;
+    protected final WebDriver driver;
 
     public Page(WebDriver driver) {
         PageFactory.initElements(driver, this);
